@@ -2,28 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dynamic table</title>
+    <title>employee data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
 </head>
-<body>
-<h1 class="text-center text-danger"><b>Employee Details</b></h1>
-<div id="employeesTable">
-    <table id="tableID">
-        <thead id="theadID">
+<body onload="getEmployees()">
 
-        </thead>
-        <tbody id="tbodyID">
+<h1 style="color: blue; text-align: center">Employees Details</h1>
+<div class="container">
+    <div class="">
+        <table class="table table-hover table-bordered table-striped" id="table1" onclick="mmyFunctiony()" >
+            <thead>
+            <tr>
+                <td style="background-color: palegreen; font-weight: bold ">Employee Id</td>
+                <td style="background-color: palegreen; font-weight: bold">Employee name</td>
+                <td style="background-color: palegreen; font-weight: bold">Employee job type</td>
+                <td style="background-color: palegreen; font-weight: bold ">Employee dob</td>
+                <td style="background-color: palegreen; font-weight: bold">Employee experience</td>
+                <td style="background-color: palegreen; font-weight: bold">Employee date of joining</td>
+            </tr>
+            </thead>
+            <tbody id="data">
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 </div>
-<div id="rowData">
-
+<div class="container" id="empdata">
 </div>
 <script type="text/javascript" src="get_data.js"></script>
+
 </body>
-</html>
+</html>s

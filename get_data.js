@@ -1,3 +1,4 @@
+/*
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -63,8 +64,8 @@ function getEmployees(){
     var tableData = document.getElementById("tableID");
     for(var m = 0; m < tableData.rows.length; m++){
         tableData.rows[m].onclick = function(){
-            /*var value = this.cells[0].innerHTML;
-             console.log(value);*/
+            /!*var value = this.cells[0].innerHTML;
+             console.log(value);*!/
             var id = this.cells[0].innerHTML;
             var name = this.cells[1].innerHTML;
             var type = this.cells[2].innerHTML;
@@ -85,3 +86,50 @@ function getEmployees(){
     }
 }
 
+*/
+
+function getEmployees () {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var myObj = JSON.parse(this.responseText);
+            var employees = myObj.Employee_details;
+
+// if(employees.length > 0) {
+            console.log(employees);
+            var temp = "";
+            employees.forEach((u) =>{
+//temp += "<tr onclick = 'myFunction(this)'>";
+                temp += "<tr>";
+            temp +="<td>" + u.id + "</td>";
+            temp +="<td>" + u.name + "</td>";
+            temp +="<td>" + u.type + "</td>";
+            temp +="<td>" + u.dob + "</td>";
+            temp +="<td>" + u.experience + "</td>";
+            temp +="<td>" + u.dateOfJoining + "</td></tr>";
+        })
+            document.getElementById('data').innerHTML = temp;
+
+        }
+    };
+    xmlhttp.open("GET", "employees.json", true);
+    xmlhttp.send();
+}
+
+function mmyFunctiony() {
+    var table = document.getElementById("table1");
+    var rows = table.getElementsByTagName('tr');
+    for(var i =0 ; i<rows.length ; i++){
+        rows[i].onclick = function () {
+
+            document.getElementById('empdata').innerHTML =
+                "Employee Id :: "+this.cells[0].innerHTML+"<br>"+
+                "Employee Name :: "+this.cells[1].innerHTML +"<br>"+
+                "Employee type :: "+this.cells[2].innerHTML +"<br>"+
+                "date of birth :: "+this.cells[3].innerHTML+"<br>"+
+                "Experience :: "+this.cells[4].innerHTML+"<br>"+
+                "date of joining ::"+this.cells[5].innerHTML;
+
+        };
+    }
+}
